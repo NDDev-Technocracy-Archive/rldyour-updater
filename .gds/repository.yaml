@@ -2,22 +2,29 @@ schema_version: 1
 repository:
   id: repo_01ABK8CRWPCNG2RJ1JZ0QESJZT
   display_name: rldyour-updater
-  roles: [project]
+  roles:
+  - project
   lifecycle: active
 provider:
   type: github
-  installation: installation:github-nddev-technocracy-sandbox
-  owner: NDDev-Technocracy-Sandbox
+  installation: installation:github-nddev-technocracy-opennetwork
+  owner: NDDev-Technocracy-OpenNetwork
   repository_id: 1410416075
   name: rldyour-updater
+  aliases:
+  - owner: NDDev-Technocracy-Sandbox
+    name: rldyour-updater
 classification:
-  portfolios: ["portfolio:nddev-technocracy-sandbox"]
+  portfolios:
+  - portfolio:nddev-technocracy-opennetwork
   visibility_contract: public
   data_classification: public
 product:
   purpose: Signed-release update coordinator for OpenNetwork workstations.
 policy:
-  profiles: [repository-default, organization-default]
+  profiles:
+  - repository-default
+  - organization-default
   rollout_ring: standard
 git:
   default_branch: main
