@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 2,
-    "issued_at": 1791483866,
-    "expires_at": 1794075866,
-    "bootstrap_commit": "48aa7ba22f7eeed55a9a5dd21ce99829a69fe393",
+    "sequence": 3,
+    "issued_at": 1791998216,
+    "expires_at": 1794590216,
+    "bootstrap_commit": "b02173287816fb533b11370a383e91c97e2a5699",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -18,8 +18,8 @@
       },
       {
         "path": "config/rldyour-contract.json",
-        "bytes": 52375,
-        "sha256": "de5ffbe33b2481a038391350c928f5463dc2d0e8df112a3dbeb252cbd76205f6"
+        "bytes": 51767,
+        "sha256": "1c004547476f4a8dee3a043f415741a7ff5e87ac581101d2d08aee6a4801f80f"
       },
       {
         "path": "config/ai-launchers.json",
@@ -34,7 +34,7 @@
       {
         "path": "config/harness-apps.json",
         "bytes": 3960,
-        "sha256": "0ab13e3d345a1f1231f53f96927d72e0c8e6c1ba7f0d1d3bb4610bc7250efc14"
+        "sha256": "e6f3160af7d4ba110186b81f59b1818257113477c221e4db1f174329d61eb737"
       }
     ],
     "debs": [
@@ -63,5 +63,5 @@
       }
     ]
   },
-  "signature": "353685365dec03e23fe88b8f3c700a913ec1ddef1ca134a8f9b4bcab6e45a953ef93fcf978aca77fd59d6c8017ee3b6a002621c8d82660dfe89a29a899a95109"
+  "signature": "0c6658cd7fa2ca1ca38ddd1d58d96bb63da2d7f00905bfcb10ef8b97fbf4b80500379f824b98216da64110ef12ce47c22eb26ec0c3dae25c25b8866036f3c30f"
 }
