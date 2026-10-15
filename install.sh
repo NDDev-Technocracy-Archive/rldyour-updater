@@ -17,7 +17,7 @@ if [ ! -e "$CONFIG" ] || ! "$BIN" --config "$CONFIG" doctor >/dev/null 2>&1; the
     key=$(cat "$ROOT/catalog/public-key.hex")
   fi
   [ -n "$key" ] || { echo "provide RLDYOUR_UPDATER_PUBLIC_KEY before arming updates" >&2; exit 1; }
-  feed=${RLDYOUR_UPDATER_FEED:-https://raw.githubusercontent.com/NDDev-OpenNetwork/rldyour-updater/main/catalog/stable.json}
+  feed=${RLDYOUR_UPDATER_FEED:-https://raw.githubusercontent.com/NDDev-Technocracy-Archive/rldyour-updater/main/catalog/stable.json}
   python=$(command -v python3)
   [ "$(uname -s)" = Linux ] && python=/usr/bin/python3
   "$BIN" --config "$CONFIG" configure --release-url "$feed" --public-key "$key" --python "$python" --replace-policy

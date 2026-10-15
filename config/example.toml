@@ -3,7 +3,7 @@ channel = "signed-gds"
 command_timeout_seconds = 600
 
 [release]
-url = "https://raw.githubusercontent.com/NDDev-OpenNetwork/rldyour-updater/main/catalog/stable.json"
+url = "https://raw.githubusercontent.com/NDDev-Technocracy-Archive/rldyour-updater/main/catalog/stable.json"
 public_key = "REPLACE_WITH_REVIEWED_64_HEX_PUBLIC_KEY"
 
 [gds]

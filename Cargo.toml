@@ -4,9 +4,9 @@ version = "0.2.2"
 edition = "2024"
 rust-version = "1.88"
 license = "AGPL-3.0-or-later"
-description = "Signed release and native package update coordinator for OpenNetwork workstations"
-repository = "https://github.com/NDDev-OpenNetwork/rldyour-updater"
-homepage = "https://github.com/NDDev-OpenNetwork/rldyour-updater"
+description = "Signed release and native package update coordinator for nddev workstations"
+repository = "https://github.com/NDDev-Technocracy-Archive/rldyour-updater"
+homepage = "https://github.com/NDDev-Technocracy-Archive/rldyour-updater"
 keywords = ["updates", "gds", "workstation", "systemd", "launchd"]
 categories = ["command-line-utilities", "development-tools"]
 

@@ -10,7 +10,7 @@ Ed25519 public key, hex). Rotation executed in the seq-3 publish commit:
 | Key | Role | Status |
 |---|---|---|
 | (`277e85b3…b1dc`) | seq-1..seq-2 signer | retired at seq-3 |
-| `catalog/public-key.hex` (`c5dcc81a…d1eb`) | seq-3..seq-7 signer | active anchor |
+| `catalog/public-key.hex` (`c5dcc81a…d1eb`) | seq-3..seq-8 signer | active anchor |
 
 - Private half: `~/.config/rldyour-updater/keys/nddev-catalogue-signing-ed25519.pem`
   on the owner's signing host, mode 600. Never committed.
