@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 6,
-    "issued_at": 1792060191,
-    "expires_at": 1794652191,
-    "bootstrap_commit": "53d171d21acd868f80b670874cdef596bef23655",
+    "sequence": 7,
+    "issued_at": 1792060726,
+    "expires_at": 1794652726,
+    "bootstrap_commit": "435d3bdac7f59a4d0dedb2a9e9d1b011d7b6fc92",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -28,8 +28,8 @@
       },
       {
         "path": "scripts/ubuntu/harness-apps.py",
-        "bytes": 18368,
-        "sha256": "e07252ab491d23e1fd00cab9c4deea868707c1f470768eea97678bb77e77b842"
+        "bytes": 18853,
+        "sha256": "213d611def9c67ea9ab2e2ef74a7fff7e332f3e2f12eb18e0c78d06710f766ff"
       },
       {
         "path": "config/harness-apps.json",
@@ -63,5 +63,5 @@
       }
     ]
   },
-  "signature": "ff861aa6ef9f725e3ba7b28ec9ac52bbd6173d99ca35fa0fe6ee24da08d17652140edcd71c3c1a540e1e3aa957b1c7abde506cba87f79544ed328c22569b4100"
+  "signature": "18cd5f075a4d52fd49dacbf8f70ca670a95ba233c61ac996f5fc49954e7b85011095f36aef186fc4e99cf13e2a360bee63e37ac13bccaf6d98075fc9f3e71c09"
 }
