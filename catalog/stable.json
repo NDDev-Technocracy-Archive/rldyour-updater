@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 3,
-    "issued_at": 1791998216,
-    "expires_at": 1794590216,
-    "bootstrap_commit": "b02173287816fb533b11370a383e91c97e2a5699",
+    "sequence": 4,
+    "issued_at": 1792059164,
+    "expires_at": 1794651164,
+    "bootstrap_commit": "b4c7f5381848ecf95513873a54671eaf31d3c0b4",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -18,8 +18,8 @@
       },
       {
         "path": "config/rldyour-contract.json",
-        "bytes": 51767,
-        "sha256": "1c004547476f4a8dee3a043f415741a7ff5e87ac581101d2d08aee6a4801f80f"
+        "bytes": 52071,
+        "sha256": "2384da4b33eeb275fa885fa2d5dbc09b91ea07af2213cf86edf07357c3ea5cb1"
       },
       {
         "path": "config/ai-launchers.json",
@@ -33,17 +33,17 @@
       },
       {
         "path": "config/harness-apps.json",
-        "bytes": 3960,
-        "sha256": "e6f3160af7d4ba110186b81f59b1818257113477c221e4db1f174329d61eb737"
+        "bytes": 4040,
+        "sha256": "025bf0444958fc4ba42a433f8c7c954aecc215bf525cceb69178c1daafe9293f"
       }
     ],
     "debs": [
       {
         "package": "happ",
-        "version": "4.3.0-318",
-        "url": "https://github.com/Happ-proxy/happ-desktop/releases/download/4.3.0/Happ.linux.x64.deb",
-        "bytes": 79512212,
-        "sha256": "41c86c0caf18190bce58a7f603fd466c9e3fbfef2b85f837635a0453401affba"
+        "version": "4.5.4",
+        "url": "https://github.com/Happ-proxy/happ-desktop/releases/download/4.5.4/Happ.linux.x64.deb",
+        "bytes": 86180524,
+        "sha256": "bdc9bb479c519a74faf6b195c10b29eeae094a36c77fb1bd1d2b6e243f51d954"
       }
     ],
     "updater_binaries": [
@@ -63,5 +63,5 @@
       }
     ]
   },
-  "signature": "0c6658cd7fa2ca1ca38ddd1d58d96bb63da2d7f00905bfcb10ef8b97fbf4b80500379f824b98216da64110ef12ce47c22eb26ec0c3dae25c25b8866036f3c30f"
+  "signature": "ee84e2bc7437141955e07c25240234a1ee8a0be9c2e1030f29a4056bc2ac0abec1446010d9f81207b99370ae754daa5777a27c61784b60043bb32e5fc971e40c"
 }
