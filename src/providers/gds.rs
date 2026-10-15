@@ -73,10 +73,15 @@ pub fn run<R: CommandRunner>(
     {
         Some(value) => value,
         None => {
-            return ActionResult::failed(
+            let mut result = ActionResult::failed(
                 action,
                 "installer did not produce a valid structured receipt",
             );
+            result.stdout = output.stdout;
+            result.stderr = output.stderr;
+            result.exit_code = output.exit_code;
+            result.output_truncated = output.truncated;
+            return result;
         }
     };
     let expected: std::collections::BTreeSet<_> = if policy.gds.applications {
@@ -114,10 +119,15 @@ pub fn run<R: CommandRunner>(
         || actual != expected
         || receipt.components.len() != expected.len()
     {
-        return ActionResult::failed(
+        let mut result = ActionResult::failed(
             action,
             "installer receipt contradicts the signed component contract",
         );
+        result.stdout = output.stdout;
+        result.stderr = output.stderr;
+        result.exit_code = output.exit_code;
+        result.output_truncated = output.truncated;
+        return result;
     }
     let mut result = ActionResult::observed(
         action,

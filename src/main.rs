@@ -64,6 +64,14 @@ enum Command {
     },
 }
 
+fn absolutize(path: PathBuf) -> Result<PathBuf, String> {
+    if path.is_absolute() {
+        return Ok(path);
+    }
+    let cwd = std::env::current_dir().map_err(|e| e.to_string())?;
+    Ok(cwd.join(path))
+}
+
 fn main() -> Result<(), String> {
     let cli = Cli::parse();
     let config = cli.config.unwrap_or(paths::config_path()?);
@@ -107,10 +115,11 @@ fn main() -> Result<(), String> {
             debs,
             updater_binaries,
         } => {
-            let mut payload = rldyour_updater::release::build(&bootstrap, sequence, days)?;
+            let mut payload =
+                rldyour_updater::release::build(&absolutize(bootstrap)?, sequence, days)?;
             if let Some(path) = debs {
                 payload.debs = serde_json::from_slice(&rldyour_updater::storage::read_bounded(
-                    &path,
+                    &absolutize(path)?,
                     64 * 1024,
                 )?)
                 .map_err(|e| e.to_string())?;
@@ -118,13 +127,13 @@ fn main() -> Result<(), String> {
             }
             if let Some(path) = updater_binaries {
                 payload.updater_binaries = serde_json::from_slice(
-                    &rldyour_updater::storage::read_bounded(&path, 64 * 1024)?,
+                    &rldyour_updater::storage::read_bounded(&absolutize(path)?, 64 * 1024)?,
                 )
                 .map_err(|e| e.to_string())?;
                 payload.validate(rldyour_updater::model::unix_seconds())?;
             }
             rldyour_updater::storage::replace(
-                &output,
+                &absolutize(output)?,
                 &serde_json::to_vec_pretty(&payload).map_err(|e| e.to_string())?,
             )?;
             println!("catalogue payload built from {}", payload.bootstrap_commit);
@@ -135,13 +144,14 @@ fn main() -> Result<(), String> {
             output,
         } => {
             let payload = serde_json::from_slice(&rldyour_updater::storage::read_bounded(
-                &payload,
+                &absolutize(payload)?,
                 rldyour_updater::catalog::LIMIT,
             )?)
             .map_err(|e| e.to_string())?;
-            let (envelope, key) = rldyour_updater::catalog::sign(payload, &private_key)?;
+            let (envelope, key) =
+                rldyour_updater::catalog::sign(payload, &absolutize(private_key)?)?;
             rldyour_updater::storage::replace(
-                &output,
+                &absolutize(output)?,
                 &serde_json::to_vec_pretty(&envelope).map_err(|e| e.to_string())?,
             )?;
             println!("catalogue signed; public_key={key}");
@@ -151,7 +161,10 @@ fn main() -> Result<(), String> {
             public_key,
         } => {
             let payload = rldyour_updater::catalog::verify(
-                &rldyour_updater::storage::read_bounded(&catalog, rldyour_updater::catalog::LIMIT)?,
+                &rldyour_updater::storage::read_bounded(
+                    &absolutize(catalog)?,
+                    rldyour_updater::catalog::LIMIT,
+                )?,
                 &public_key,
                 &Default::default(),
                 rldyour_updater::model::unix_seconds(),

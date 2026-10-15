@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.2] - 2026-10-15
+
+- Keep bounded installer stdout/stderr and the child exit code on
+  receipt-parse and receipt-contract failures; both paths previously reported
+  "installer did not produce a valid structured receipt" while discarding the
+  only diagnostic evidence.
+- Accept relative paths for the catalogue build/sign/verify CLI arguments;
+  they are resolved against the working directory before the strict
+  absolute-path storage boundary.
+- Refresh the catalogue keys README: the nddev anchor rotation already
+  executed at sequence 3 and the status table now reflects it.
+
 ## [0.2.1] - 2026-10-08
 
 - Qualify scheduled signed update transactions on native Ubuntu and macOS.
