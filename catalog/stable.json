@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 5,
-    "issued_at": 1792059708,
-    "expires_at": 1794651708,
-    "bootstrap_commit": "b800f7cffbeb39bb0ac6b2b0739d68e43cd5b8c8",
+    "sequence": 6,
+    "issued_at": 1792060191,
+    "expires_at": 1794652191,
+    "bootstrap_commit": "53d171d21acd868f80b670874cdef596bef23655",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -34,13 +34,13 @@
       {
         "path": "config/harness-apps.json",
         "bytes": 4040,
-        "sha256": "025bf0444958fc4ba42a433f8c7c954aecc215bf525cceb69178c1daafe9293f"
+        "sha256": "bb522636bc900133ff01eecea642544e1a7564c07bb365067f1e5d479851b5f7"
       }
     ],
     "debs": [
       {
         "package": "happ",
-        "version": "4.5.4",
+        "version": "4.5.4-333",
         "url": "https://github.com/Happ-proxy/happ-desktop/releases/download/4.5.4/Happ.linux.x64.deb",
         "bytes": 86180524,
         "sha256": "bdc9bb479c519a74faf6b195c10b29eeae094a36c77fb1bd1d2b6e243f51d954"
@@ -63,5 +63,5 @@
       }
     ]
   },
-  "signature": "5ace9d591131d09b77fa093c50bc18fcf5e88edc80ad2ccbf90204a5cbfc064afca537a7c25e7a75562f9abf3bb470c219c9782f444f882ede54123c7c6d1e0d"
+  "signature": "ff861aa6ef9f725e3ba7b28ec9ac52bbd6173d99ca35fa0fe6ee24da08d17652140edcd71c3c1a540e1e3aa957b1c7abde506cba87f79544ed328c22569b4100"
 }
