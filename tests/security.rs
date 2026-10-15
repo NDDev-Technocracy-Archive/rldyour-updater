@@ -228,3 +228,32 @@ fn runner_drains_large_output_and_deadline_contains_descendants() {
     assert!(!output.ok);
     assert!(start.elapsed() < Duration::from_secs(3));
 }
+#[test]
+fn self_update_urls_accept_only_known_release_owners() {
+    let now = 1000;
+    for (url, ok) in [
+        (
+            "https://github.com/NDDev-Technocracy-Archive/rldyour-updater/releases/download/v9.9.9/x",
+            true,
+        ),
+        (
+            "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/v9.9.9/x",
+            true,
+        ),
+        (
+            "https://github.com/attacker-org/rldyour-updater/releases/download/v9.9.9/x",
+            false,
+        ),
+        ("https://evil.example.com/releases/download/v9.9.9/x", false),
+    ] {
+        let mut value = payload(now);
+        value.updater_binaries = vec![catalog::UpdaterBinary {
+            platform: "linux/x86_64".into(),
+            version: "9.9.9".into(),
+            url: url.into(),
+            bytes: 1024,
+            sha256: catalog::sha256(b"binary"),
+        }];
+        assert_eq!(value.validate(now).is_ok(), ok, "url={url}");
+    }
+}
