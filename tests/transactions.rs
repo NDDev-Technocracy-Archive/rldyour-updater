@@ -12,6 +12,7 @@ struct Fixture {
     calls: RefCell<Vec<Vec<String>>>,
     corrupt: bool,
     receipt: bool,
+    noise: Option<String>,
 }
 impl CommandRunner for Fixture {
     fn run(&self, argv: &[String], _cwd: Option<&Path>, _timeout: Duration) -> CommandOutput {
@@ -28,8 +29,13 @@ impl CommandRunner for Fixture {
                 b"test".to_vec()
             };
             fs::write(dest, bytes).unwrap();
-        } else if argv.iter().any(|a| a.ends_with("managed_cli.py")) && self.receipt {
-            stdout=serde_json::json!({"schema":1,"components": (["antigravity","claude-code","codex","cursor","grok-build","opencode","pi","devin","gddy"].iter().map(|id|serde_json::json!({"id":id,"changed":false})).collect::<Vec<_>>()),"vendor_configuration_mutated":false}).to_string();
+        } else if argv.iter().any(|a| a.ends_with("managed_cli.py")) {
+            if self.receipt {
+                stdout=serde_json::json!({"schema":1,"components": (["antigravity","claude-code","codex","cursor","grok-build","opencode","pi","devin","gddy"].iter().map(|id|serde_json::json!({"id":id,"changed":false})).collect::<Vec<_>>()),"vendor_configuration_mutated":false}).to_string();
+            }
+            if let Some(noise) = &self.noise {
+                stdout = format!("{stdout}{noise}");
+            }
         }
         CommandOutput {
             ok: true,
@@ -82,6 +88,7 @@ fn setup() -> (tempfile::TempDir, Policy, Fixture) {
             calls: RefCell::new(vec![]),
             corrupt: false,
             receipt: true,
+            noise: None,
         },
     )
 }
@@ -127,6 +134,23 @@ fn empty_installer_output_cannot_be_a_successful_update() {
     let result = providers::gds::run(&policy, &source, &runner);
     assert!(!result.ok);
     assert_eq!(result.state, "failed");
+}
+#[test]
+fn receipt_parse_failure_keeps_installer_output_for_review() {
+    let (_dir, policy, mut runner) = setup();
+    runner.receipt = false;
+    runner.noise = Some("installer progress lines\nnot-a-receipt\n".into());
+    let source = release::fetch(&policy, &runner).unwrap();
+    let result = providers::gds::run(&policy, &source, &runner);
+    assert!(!result.ok);
+    assert_eq!(result.state, "failed");
+    assert!(
+        result
+            .detail
+            .contains("did not produce a valid structured receipt")
+    );
+    assert!(result.stdout.contains("not-a-receipt"));
+    assert_eq!(result.exit_code, Some(0));
 }
 #[test]
 fn invalid_ledger_blocks_before_network() {
