@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 7,
-    "issued_at": 1792060726,
-    "expires_at": 1794652726,
-    "bootstrap_commit": "435d3bdac7f59a4d0dedb2a9e9d1b011d7b6fc92",
+    "sequence": 8,
+    "issued_at": 1792063609,
+    "expires_at": 1794655609,
+    "bootstrap_commit": "0fa543213e7b44604697179d5e0b3cd7a2ada3d6",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -19,7 +19,7 @@
       {
         "path": "config/rldyour-contract.json",
         "bytes": 52071,
-        "sha256": "2384da4b33eeb275fa885fa2d5dbc09b91ea07af2213cf86edf07357c3ea5cb1"
+        "sha256": "b8b27137685a71616b2302a734137b41f5ce5f307f8f4adcec68e63cdac24388"
       },
       {
         "path": "config/ai-launchers.json",
@@ -49,19 +49,19 @@
     "updater_binaries": [
       {
         "platform": "linux/x86_64",
-        "version": "0.2.1",
-        "url": "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/v0.2.1/rldyour-updater-v0.2.1-linux-x86_64",
-        "bytes": 1142616,
-        "sha256": "5e0468b5c5c2dbbf3855a51738ae507bd06c892456ab3e0c23d125fcf3666c64"
+        "version": "0.2.2",
+        "url": "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/v0.2.2/rldyour-updater-v0.2.2-linux-x86_64",
+        "bytes": 1143744,
+        "sha256": "66dab51fc8d36329204cd46473211d5eafb9747903fad1abddce5e7c0b018b4d"
       },
       {
         "platform": "macos/arm64",
-        "version": "0.2.1",
-        "url": "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/v0.2.1/rldyour-updater-v0.2.1-macos-arm64",
-        "bytes": 871616,
-        "sha256": "95136be7dcdc6045c101fad92fb428cb20e0cdb057ab7d28dd5b61b0030da56f"
+        "version": "0.2.2",
+        "url": "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/v0.2.2/rldyour-updater-v0.2.2-macos-arm64",
+        "bytes": 871632,
+        "sha256": "5a6ece3f9c1d699510d4856bce020aab7d7a5d93233ea58d679c6a793941acf9"
       }
     ]
   },
-  "signature": "18cd5f075a4d52fd49dacbf8f70ca670a95ba233c61ac996f5fc49954e7b85011095f36aef186fc4e99cf13e2a360bee63e37ac13bccaf6d98075fc9f3e71c09"
+  "signature": "638c54a872182df0d6f7360edc34bfad48278d3eedb912fbbf401d4c666e46eaf2e9ddf95782293a5108cd70e26414241b5832ec80330311b6d47b5b4a8d3f05"
 }
