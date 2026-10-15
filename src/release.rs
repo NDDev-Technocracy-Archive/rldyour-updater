@@ -59,7 +59,7 @@ pub fn fetch<R: CommandRunner>(policy: &Policy, runner: &R) -> Result<VerifiedRe
         fs::create_dir_all(path.parent().ok_or("invalid source path")?)
             .map_err(|e| e.to_string())?;
         let url = format!(
-            "https://raw.githubusercontent.com/NDDev-OpenNetwork/macos-ubuntu-bootstrap/{}/{}",
+            "https://raw.githubusercontent.com/NDDev-Technocracy-Archive/macos-ubuntu-bootstrap-20261014/{}/{}",
             payload.bootstrap_commit, entry.path
         );
         crate::transport::download(

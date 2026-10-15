@@ -133,9 +133,14 @@ impl Payload {
                 return Err("unsupported or duplicate updater binary".into());
             }
             version_tuple(&artifact.version)?;
-            if !artifact.url.starts_with(
+            const RELEASE_PREFIXES: [&str; 2] = [
+                "https://github.com/NDDev-Technocracy-Archive/rldyour-updater/releases/download/",
                 "https://github.com/NDDev-OpenNetwork/rldyour-updater/releases/download/",
-            ) {
+            ];
+            if !RELEASE_PREFIXES
+                .iter()
+                .any(|prefix| artifact.url.starts_with(prefix))
+            {
                 return Err("self updates must come from an explicit updater release".into());
             }
             crate::transport::validate_https(&artifact.url)?;
