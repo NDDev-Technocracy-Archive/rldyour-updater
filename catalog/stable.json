@@ -1,10 +1,10 @@
 {
   "payload": {
     "schema": 1,
-    "sequence": 8,
-    "issued_at": 1792063609,
-    "expires_at": 1794655609,
-    "bootstrap_commit": "0fa543213e7b44604697179d5e0b3cd7a2ada3d6",
+    "sequence": 9,
+    "issued_at": 1792908721,
+    "expires_at": 1795500721,
+    "bootstrap_commit": "acb982520abcc5950daca81957319c303f4c1202",
     "files": [
       {
         "path": "scripts/managed_cli.py",
@@ -18,8 +18,8 @@
       },
       {
         "path": "config/rldyour-contract.json",
-        "bytes": 52071,
-        "sha256": "b8b27137685a71616b2302a734137b41f5ce5f307f8f4adcec68e63cdac24388"
+        "bytes": 52092,
+        "sha256": "cdd2bbdfb5988aee1937ccfa59e5e4dba6fa78dbf7fe7d98c2725417b02c45b4"
       },
       {
         "path": "config/ai-launchers.json",
@@ -63,5 +63,5 @@
       }
     ]
   },
-  "signature": "638c54a872182df0d6f7360edc34bfad48278d3eedb912fbbf401d4c666e46eaf2e9ddf95782293a5108cd70e26414241b5832ec80330311b6d47b5b4a8d3f05"
+  "signature": "950b9ff92a7a67d21fd71369abed8c1f38f22b5d3040ccc08dee400d2dad7ee753f262d4bfb0f94aa5114a9c551be4c523fe2ceebfb86d42f54ab0f18fa19004"
 }
